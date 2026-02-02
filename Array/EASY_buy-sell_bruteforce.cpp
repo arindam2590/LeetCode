@@ -5,7 +5,7 @@ using namespace std;
 
 class Solution {
 public:
-    vector<int> maxProfit(const vector<int>& prices) {
+    int maxProfit(const vector<int>& prices) {
         if (prices.size() < 2) return {};     // no trade possible
 
         vector<int> buy_sell_price;           // keep empty unless profit found
@@ -18,11 +18,11 @@ public:
                 int profit = prices[j] - buyPrice;
                 if (profit > maxProfit) {
                     maxProfit = profit;
-                    buy_sell_price = {buyPrice, prices[j]};
+                    // buy_sell_price = {buyPrice, prices[j]};
                 }
             }
         }
-        return buy_sell_price;
+        return maxProfit;
     }
 };
 
@@ -33,13 +33,9 @@ int main() {
     vector<int> arr(n);
     for (int i = 0; i < n; i++) cin >> arr[i];
 
-    vector<int> ret = Solution().maxProfit(arr);
+    int ret = Solution().maxProfit(arr);
     
-    if (!ret.empty()) {
-        cout << "[" << ret[0] << "," << ret[1] << "]\n";
-    } else {
-        cout << "No solution\n";
-    }
+    cout << "Maximum Profit: " << ret<< "\n";
     
     return 0;
 }
