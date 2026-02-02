@@ -6,9 +6,6 @@ using namespace std;
 class Solution {
 public:
     int maxProfit(const vector<int>& prices) {
-        if (prices.size() < 2) return {};     // no trade possible
-
-        vector<int> buy_sell_price;           // keep empty unless profit found
         int maxProfit = 0;
 
         for (int i = 0; i < (int)prices.size(); ++i) {
@@ -18,7 +15,6 @@ public:
                 int profit = prices[j] - buyPrice;
                 if (profit > maxProfit) {
                     maxProfit = profit;
-                    // buy_sell_price = {buyPrice, prices[j]};
                 }
             }
         }
