@@ -1,3 +1,4 @@
+// Online C++ compiler to run C++ program online
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -22,21 +23,23 @@ public:
             }
         }
         return buy_sell_price;
+    }
 };
 
 int main() {
     int n;
     cin >> n;
-
+    
     vector<int> arr(n);
     for (int i = 0; i < n; i++) cin >> arr[i];
 
     vector<int> ret = Solution().maxProfit(arr);
-
+    
     if (!ret.empty()) {
         cout << "[" << ret[0] << "," << ret[1] << "]\n";
     } else {
-        cout << "No profit\n";
+        cout << "No solution\n";
     }
+    
     return 0;
 }
